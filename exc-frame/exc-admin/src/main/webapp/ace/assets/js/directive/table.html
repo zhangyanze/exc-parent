@@ -1,0 +1,36 @@
+<table id="table" class="table table-hover table-bordered table-striped">
+	<thead>
+		<tr>
+			<th ng-if="tableConf.check == 'multi'" width="22">
+				<label>
+					<input type="checkbox" class="ace" ng-checked="isSelectAll()" ng-click="checkAll($event)" /> <span class="lbl"></span>
+				</label>
+			</th>
+			<th ng-if="tableConf.editTable" width="80">
+			</th>
+			<th ng-if="tableConf.index" width="50">序号</th>
+			<th ng-repeat="item in tableConf.headers" ng-bind="item.text"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="data in tableConf.datas" ng-class-odd="'odd'" ng-click="check(data[tableConf.key],$event)" ng-class="{selected : isSelected(data[tableConf.key])}">
+			<td ng-if="tableConf.check == 'multi'" width="22">
+				<label>
+					<input type="checkbox" class="ace" ng-checked="isSelected(data.id)" ng-click="check(data[tableConf.key],$event)" /> <span class="lbl"></span>
+				</label>
+			</td>
+			<td ng-if="tableConf.editTable">
+				<div ng-if="!tableConf.edits[$index]" ng-click="editRow($index,$event)" class="ui-pg-div" style="float: left"><span class="ui-icon icon-pencil blue"></span></div>
+				<div ng-if="!tableConf.edits[$index]" ng-click="delRow($index,$event)" class="ui-pg-div" style="float: left"><span class="ui-icon icon-trash red"></span></div>
+				<div ng-if="tableConf.edits[$index]" ng-click="submitRow($index,$event)" class="ui-pg-div" style="float: left"><span class="ui-icon ui-icon-disk"></span></div>
+				<div ng-if="tableConf.edits[$index]" ng-click="cancelRow($index,$event)" class="ui-pg-div" style="float: left"><span class="ui-icon ui-icon-cancel"></span></div>
+			</td>
+			<td ng-if="tableConf.index" ng-bind="$index + 1"></td>
+			<td ng-repeat="item in tableConf.headers">
+				<span ng-if="!item.edit || !tableConf.edits[$parent.$index]" ng-bind="data[item.name] {{item.filter}}"></span>
+				<input ng-click="$event.stopPropagation()" ng-if="item.edit && item.type=='text' && tableConf.edits[$parent.$index]" type="text" ng-model="data[item.name]" />
+				<select ng-click="$event.stopPropagation()" ng-if="item.edit && item.type=='select' && tableConf.edits[$parent.$index]" ng-options="o.value as o.text for o in item.options" ng-model="data[item.name]" />
+			</td>
+		</tr>
+	</tbody>
+</table>

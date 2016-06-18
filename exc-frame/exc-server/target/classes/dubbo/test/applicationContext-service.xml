@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-lazy-init="true">
+	<description>base模块dubbo服务注册</description>
+		
+	<!-- 数据字典服务 -->
+	<dubbo:service interface="com.exc.test.service.TestBS" ref="testBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+	<!-- 区域服务 -->
+</beans>

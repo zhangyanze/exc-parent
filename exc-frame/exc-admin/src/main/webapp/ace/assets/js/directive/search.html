@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="src_box">
+			<div class="form-horizontal fn_cle">
+				<ul>
+					<li ng-repeat="formBox in searchConf.form">
+						<div class="control-group">
+							<label class="fn_left"><span ng-bind="formBox.text"></span></label> 
+							
+							<input
+								ng-if="formBox.type=='text'" name="{{formBox.name}}" type="text"
+								ng-model="searchConf.searchData[formBox.name]" value="{{formBox.value}}" /> 
+								
+							<select
+								ng-if="formBox.type=='select'" name="{{formBox.name}}"
+								ng-model="searchConf.searchData[formBox.name]"
+								ng-options="a.value||a[0] as a.text||a[1] for a in formBox.option">
+								<option value="">-- 请选择 --</option>
+							</select>
+							<div class="fn_left" ng-if="formBox.type=='datetime'"
+								style="width: 163px">
+								<div class="input-group date" data-date-format="yyyy-mm-dd"
+									ng-controller="dateCtrl">
+									<input type="text" ng-class={inputError:dp.validDate==false}
+										class="form-control input-sm" ng-model="searchData[formBox.name]"
+										readonly name="{{searchConf.formBox.name}}" /> <span
+										class="input-group-addon"><span
+										class="glyphicon glyphicon-th"></span></span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="srcbtn_box"><input type="button" value="搜索"	ng-click="searchConf.search();" class="srcbtn" /></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

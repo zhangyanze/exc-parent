@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-lazy-init="true">
+		
+	<dubbo:reference version="1.0.0" interface="com.exc.sys.service.SysPageBS" check="false" id="sysPageBS"></dubbo:reference>
+	<dubbo:reference version="1.0.0" interface="com.exc.sys.service.SysPageSearchBS" check="false" id="sysPageSearchBS"></dubbo:reference>
+	<dubbo:reference version="1.0.0" interface="com.exc.sys.service.SysPageTableBS" check="false" id="sysPageTableBS"></dubbo:reference>
+	<dubbo:reference version="1.0.0" interface="com.exc.sys.service.SysPageToolBS" check="false" id="sysPageToolBS"></dubbo:reference>	
+	<dubbo:reference version="1.0.0" interface="com.exc.sys.service.SysPageFormBS" check="false" id="sysPageFormBS"></dubbo:reference>	
+	<dubbo:reference version="1.0.0" interface="com.exc.sys.service.SysDictTypeBS" check="false" id="sysDictTypeBS"></dubbo:reference>	
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://code.alibabatech.com/schema/dubbo
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	default-lazy-init="true">
+	<description>system模块dubbo服务注册</description>
+	<dubbo:service interface="com.exc.sys.service.SysPageBS" ref="sysPageBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+	<dubbo:service interface="com.exc.sys.service.SysPageToolBS" ref="sysPageToolBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+	<dubbo:service interface="com.exc.sys.service.SysPageSearchBS" ref="sysPageSearchBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+	<dubbo:service interface="com.exc.sys.service.SysPageTableBS" ref="sysPageTableBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+	<dubbo:service interface="com.exc.sys.service.SysPageFormBS" ref="sysPageFormBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+	<dubbo:service interface="com.exc.sys.service.SysDictTypeBS" ref="sysDictTypeBS" version="1.0.0" timeout="10000" retries="0" loadbalance="random" actives="0"/>
+</beans>

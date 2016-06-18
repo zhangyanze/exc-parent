@@ -1,0 +1,7 @@
+<div class="table-header" style="background-color: #428bca">
+	<div class="btn-group">
+		<button ng-repeat="tool in toolConf.toolList" id="{{tool.id}}"
+			type="button" class="btn btn-primary icon-{{tool.icon}}"
+			ng-bind="tool.text" ng-click="exc(tool)"></button>
+	</div>
+</div>
